@@ -1,17 +1,19 @@
-function insertionSorting(array){
-    for(let i = 0; i < array.length; i++){
-        if(array[i] < array[i-1] && typeof(array[i-1]) != "undefined"){
-            for(let y = 0; y < i; y++){
-                if(array[i-y] < array[i-y-1]){
-                    let val1 = array[i-y];
-                    let val2 = array[i-y-1];
-                    array.splice(i-y, 1, val2);
-                    array.splice(i-y-1, 1, val1);
-                }
-            }
-        }
+function insertionSort(input) {
+    for (let i = 1; i < input.length; i++) {
+      const key = input[i]
+  
+      let j = i - 1
+      while (j >= 0 && input[j] > key) {
+        input[j + 1] = input[j]
+        j -= 1
+      }
+      input[j + 1] = key
     }
-    return array
-}
-
-console.log(insertionSorting([3, 4, 1, 2, 6, 5, 9, 7, 8]));
+  
+    return input
+  }
+  
+  const arrayToSort = [6, 5, 3, 1, 8, 7, 2, 4]
+  insertionSort(arrayToSort)
+  
+  console.log(arrayToSort)
